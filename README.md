@@ -1,6 +1,3 @@
-SweetXml
-========
-
 # SweetXml [![Build Status](https://api.travis-ci.org/remiq/sweet_xml.svg)][Continuous Integration]
 
 [Continuous Integration]: http://travis-ci.org/remiq/sweet_xml "Build status by Travis-CI"

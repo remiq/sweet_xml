@@ -9,7 +9,6 @@ SweetXml
 `char_list` or `xmlElement` record as defined in `:xmerl` to an elixir value such
 as `map`, `list`, `string`, `integer`, or any combination of these.
 
-
 ## Examples
 
 Given a xml document such as below

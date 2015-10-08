@@ -1,6 +1,10 @@
 SweetXml
 ========
 
+# SweetXml [![Build Status](https://api.travis-ci.org/remiq/sweet_xml.svg)][Continuous Integration]
+
+[Continuous Integration]: http://travis-ci.org/remiq/sweet_xml "Build status by Travis-CI"
+
 `SweetXml` is a thin wrapper around `:xmerl`. It allows you to convert a
 `char_list` or `xmlElement` record as defined in `:xmerl` to an elixir value such
 as `map`, `list`, `string`, `integer`, or any combination of these.

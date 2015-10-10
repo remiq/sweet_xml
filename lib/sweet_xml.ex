@@ -85,6 +85,20 @@ defmodule SweetXml do
 
     * `~x"//some/path"sl` - string list.
 
+    * `~x"//some/path"i`
+
+      'i' stands for (i)nteger. This forces `xpath/2` to return the value as
+      integer instead of a char list.
+
+    * `~x"//some/path"il` - integer list
+
+    * `~x"//some/path"a`
+
+      'a' stands for (a)oolean. This forces `xpath/2` to return the value as
+      existing atom instead of a char list. Ie. :true, :false
+
+    * `~x"//some/path"al` - atom list
+
   Notice also in the examples section, we always import SweetXml first. This
   makes `x_sigil` available in the current scope. Without it, instead of using
   `~x`, you can do the following
@@ -159,6 +173,13 @@ defmodule SweetXml do
       integer instead of a char list.
 
     * `~x"//some/path"il` - integer list
+
+    * `~x"//some/path"a`
+
+      'a' stands for (a)oolean. This forces `xpath/2` to return the value as
+      existing atom instead of a char list. Ie. :true, :false
+
+    * `~x"//some/path"al` - atom list
   """
   def sigil_x(path, modifiers \\ '') do
     %SweetXpath{
@@ -169,6 +190,7 @@ defmodule SweetXml do
       cast_to: cond do
         ?s in modifiers -> :string
         ?i in modifiers -> :integer
+        ?a in modifiers -> :atom
         :otherwise -> false
       end
     }
@@ -588,5 +610,6 @@ defmodule SweetXml do
   defp to_cast(value, false), do: value
   defp to_cast(value, :string), do: to_string(value)
   defp to_cast(value, :integer), do: String.to_integer(to_string(value))
+  defp to_cast(value, :atom), do: String.to_existing_atom(to_string(value))
 
 end
